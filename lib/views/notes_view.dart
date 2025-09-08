@@ -8,11 +8,13 @@ class NotesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: const Color(0xFF424242),
+          child: Icon(Icons.add),
+        ),
         body: NotesViewBody(),
       ),
     );
   }
 }
-
-
-
