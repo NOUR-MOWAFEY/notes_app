@@ -9,19 +9,16 @@ class CustomButton extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: 55,
       decoration: BoxDecoration(
-        color: Colors.grey,
+        color: Color(0xFF424242),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Center(
         child: Text(
           'Add',
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
         ),
       ),
     );
   }
 }
+
