@@ -24,7 +24,7 @@ class CustomTextField extends StatelessWidget {
       onSaved: onSaved,
       cursorColor: Colors.white,
       maxLines: maxLines,
-      decoration: InputDecoration(
+      decoration :   InputDecoration(
         hintText: hintText,
         border: customBorder(),
         enabledBorder: customBorder(),
@@ -34,9 +34,9 @@ class CustomTextField extends StatelessWidget {
   }
 
   OutlineInputBorder customBorder({Color? color}) {
-    return OutlineInputBorder(
+    return  OutlineInputBorder(
       borderRadius: BorderRadius.circular(16),
-      borderSide: BorderSide(color: color ?? Colors.grey, width: 2),
+      borderSide:  BorderSide(color: color ?? Colors.grey, width: 2),
     );
   }
 }
