@@ -19,42 +19,40 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: EdgeInsets.only(top: 24, right: 24, left: 24),
-          child: Column(
-            children: [
-              CustomAppBar(
-                title: 'Edit Note',
-                icon: Icons.check,
-                onPressed: () {
-                  widget.note.title = title ?? widget.note.title;
-                  widget.note.subtitle = content ?? widget.note.subtitle;
-                  widget.note.save();
-                  BlocProvider.of<NotesCubit>(context).fetchAllNotes();
-                  Navigator.pop(context);
-                },
-              ),
-              SizedBox(height: 40),
-              CustomTextField(
-                hintText: widget.note.title,
-                onChanged: (value) {
-                  title = value;
-                },
-              ),
-              SizedBox(height: 16),
-              CustomTextField(
-                hintText: widget.note.subtitle,
-                maxLines: 5,
-                onChanged: (value) {
-                  content = value;
-                },
-              ),
-              SizedBox(height: 16),
-              EditNoteColorsList(note: widget.note),
-            ],
-          ),
+    return Scaffold(
+      body: Padding(
+        padding: EdgeInsets.only(top: 60, right: 24, left: 24),
+        child: Column(
+          children: [
+            CustomAppBar(
+              title: 'Edit Note',
+              icon: Icons.check,
+              onPressed: () {
+                widget.note.title = title ?? widget.note.title;
+                widget.note.subtitle = content ?? widget.note.subtitle;
+                widget.note.save();
+                BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+                Navigator.pop(context);
+              },
+            ),
+            SizedBox(height: 40),
+            CustomTextField(
+              hintText: widget.note.title,
+              onChanged: (value) {
+                title = value;
+              },
+            ),
+            SizedBox(height: 16),
+            CustomTextField(
+              hintText: widget.note.subtitle,
+              maxLines: 5,
+              onChanged: (value) {
+                content = value;
+              },
+            ),
+            SizedBox(height: 16),
+            EditNoteColorsList(note: widget.note),
+          ],
         ),
       ),
     );

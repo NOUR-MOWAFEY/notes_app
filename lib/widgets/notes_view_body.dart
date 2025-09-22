@@ -21,7 +21,7 @@ class _NotesViewBodyState extends State<NotesViewBody> {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.only(top: 24, right: 24, left: 24),
+      padding: EdgeInsets.only(top: 60, right: 24, left: 24),
       child: Column(
         children: [
           CustomAppBar(title: 'Notes', icon: Icons.search),
