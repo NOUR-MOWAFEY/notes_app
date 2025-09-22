@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
+  const NoteItem({super.key, required this.note});
+  final NoteModel note;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class NoteItem extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 28),
         decoration: BoxDecoration(
-          color: const Color.fromARGB(242, 255, 199, 115),
+          color: Color(note.color),
           borderRadius: BorderRadius.circular(12),
         ),
 
@@ -24,14 +26,14 @@ class NoteItem extends StatelessWidget {
           children: [
             ListTile(
               contentPadding: EdgeInsets.zero,
-              title: const Text(
-                'Flutter Tips',
-                style: TextStyle(color: Colors.black, fontSize: 28),
+              title: Text(
+                note.title,
+                style: const TextStyle(color: Colors.black, fontSize: 28),
               ),
-              subtitle: const Padding(
-                padding: EdgeInsets.only(top: 12, bottom: 12),
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top: 12, bottom: 12),
                 child: Text(
-                  'Build your career with nour mowafey',
+                  note.subtitle,
                   style: TextStyle(color: Colors.black38, fontSize: 18),
                 ),
               ),
@@ -40,11 +42,11 @@ class NoteItem extends StatelessWidget {
                 icon: const Icon(FontAwesomeIcons.trash, color: Colors.black),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(right: 6),
+            Padding(
+              padding: const EdgeInsets.only(right: 6),
               child: Text(
-                'May21,2022',
-                style: TextStyle(color: Colors.black38, fontSize: 18),
+                note.date,
+                style: const TextStyle(color: Colors.black38, fontSize: 18),
               ),
             ),
           ],
@@ -53,3 +55,5 @@ class NoteItem extends StatelessWidget {
     );
   }
 }
+
+//const Color.fromARGB(242, 255, 199, 115)
