@@ -5,16 +5,18 @@ class CustomTextField extends StatelessWidget {
     super.key,
     required this.hintText,
     this.maxLines = 1,
-    this.onSaved,
+    this.onSaved, this.onChanged,
   });
 
   final String hintText;
   final int maxLines;
   final void Function(String?)? onSaved;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
       validator: (value) {
         if (value?.isEmpty ?? true) {
           return 'Required Field';
@@ -24,7 +26,7 @@ class CustomTextField extends StatelessWidget {
       onSaved: onSaved,
       cursorColor: Colors.white,
       maxLines: maxLines,
-      decoration :   InputDecoration(
+      decoration: InputDecoration(
         hintText: hintText,
         border: customBorder(),
         enabledBorder: customBorder(),
@@ -34,9 +36,9 @@ class CustomTextField extends StatelessWidget {
   }
 
   OutlineInputBorder customBorder({Color? color}) {
-    return  OutlineInputBorder(
+    return OutlineInputBorder(
       borderRadius: BorderRadius.circular(16),
-      borderSide:  BorderSide(color: color ?? Colors.grey, width: 2),
+      borderSide: BorderSide(color: color ?? Colors.grey, width: 2),
     );
   }
 }
